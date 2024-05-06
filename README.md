@@ -9,7 +9,7 @@ An automatic script to make everyday meal a surprise via github actions.
 4. Enjoy your meal
 
 ## config.json
-```hjson
+```json
 {
     "url": "https://info637989.typeform.com/to/m4bUIenk", // do not change this, this is the lunch form link
     "name": "Michele", // name
