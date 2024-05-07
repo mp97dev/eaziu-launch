@@ -14,3 +14,5 @@ sudo apt install ./google-chrome-stable_current_amd64.deb
 
 colprint "\033[0;36m" "[II] Install pip requirements"
 pip3 install -r requirements.txt
+
+whereis google-chrome-stable
