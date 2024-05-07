@@ -1,4 +1,4 @@
-name: Scheduled run
+name: Push run
 on:
   push: main
 
