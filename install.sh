@@ -1,9 +1,9 @@
 #!/bin/bash
 
 sudo apt update
-sudo apt install python3 wkhtmltopdf libxml2-dev libxslt1-dev -y
+sudo apt install python3 -y
 
-    # install chrome
+# install chrome
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo apt install ./google-chrome-stable_current_amd64.deb
 
