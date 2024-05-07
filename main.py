@@ -13,6 +13,7 @@ from time import sleep
 picks=[]
 
 def setup():
+    print("Setting up webdriver")
     options = webdriver.ChromeOptions()
     options.add_argument("--headless")
     options.binary_location = "/usr/bin/google-chrome"
@@ -27,15 +28,17 @@ def next_section():
     if len(next_button) <= 0: raise Exception("No next button found")
     next_button[0].click()
 
-def pick_main_curse():
+def pick_main_course():
+    print("🍝 Picking main course")
     sleep(1)
     main_picks = driver.find_elements(By.XPATH, "//*[@id=\"block-dbed4899-9130-4194-8098-218dd064d7bf\"]/div/div/div/div/div/div/fieldset/div[2]/div/div[1]/div/div/div")
-    if len(main_picks) <= 0: raise Exception("No main curse found")
+    if len(main_picks) <= 0: raise Exception("No main course found")
     pick=random.choice(main_picks)
     pick.click()
     picks.append(pick.get_attribute("innerHTML"))
 
 def pick_follow():
+    print("🍖 Picking following")
     sleep(1)
     foll_picks = driver.find_elements(By.XPATH, "//*[@id=\"block-d94294cc-5d4b-4d87-b2e4-af6e7b8093ba\"]/div/div/div/div/div/div/fieldset/div[2]/div/div[2]/div/div/div")
     if len(foll_picks) <= 0: raise Exception("No follow dish found")
@@ -45,6 +48,7 @@ def pick_follow():
     picks.append(pick.get_attribute("innerHTML"))
 
 def pick_poke():
+    print("🥑 Picking poke")
     sleep(1)
     poke_picks = driver.find_elements(By.XPATH, "//*[@id=\"block-d94294cc-5d4b-4d87-b2e4-af6e7b8093ba\"]/div/div/div/div/div/div/fieldset/div[2]/div/div[2]/div/div/div")
     if len(poke_picks) <= 0: raise Exception("No follow dish found")
@@ -54,6 +58,7 @@ def pick_poke():
     picks.append(pick.get_attribute("innerHTML"))
 
 def pick_side():
+    print("🍅 Picking side")
     sleep(1)
     side_picks = driver.find_elements(By.XPATH, "//*[@id=\"block-120ded4b-5c30-483d-959d-44d36ed05eed\"]/div/div/div/div/div/div/fieldset/div[2]/div/div[2]/div/div/div")
     if len(side_picks) <= 0: raise Exception("side not founds")
@@ -62,6 +67,7 @@ def pick_side():
     picks.append(pick.get_attribute("innerHTML"))
 
 def pick_fry():
+    print("🍤 Picking fry")
     sleep(1)
     side_picks = driver.find_elements(By.XPATH, "//*[@id=\"block-bc594af9-461e-4741-b8f5-59a7b54bd861\"]/div/div/div/div/div/div/fieldset/div[2]/div/div[2]/div/div/div")
     if len(side_picks) <= 0: raise Exception("fry not founds")
@@ -70,6 +76,7 @@ def pick_fry():
     picks.append(pick.get_attribute("innerHTML"))
 
 def set_notes():
+    print("⚙️ Setting notes")
     sleep(1)
     note_textare = driver.find_elements(By.XPATH, "/html/body/div[3]/main/div[1]/div/div[2]/div[3]/div[3]/div/div/div/div/div/div[2]/section/div/div/div/div/div/div/div/div/div[2]/div[1]/div/textarea")
     if len(note_textare) <= 0: raise Exception("missing note field")
@@ -79,6 +86,7 @@ def set_notes():
 
 ######### start #############
 if __name__ == "__main__":
+    print("🏁 START!")
 
     driver = setup()
     # make a pick
@@ -87,7 +95,9 @@ if __name__ == "__main__":
         samples=list(config['weight'].keys())
         weights=list(config['weight'].values())
         pick = random.choices(samples, weights=weights)[0]
-        
+        print("🎲 SELECTED: " + pick)
+
+    print("🌐 Loading website")
     # Open website
     driver.get(config["url"])
 
@@ -96,6 +106,7 @@ if __name__ == "__main__":
     if len(start_button) <= 0: raise Exception("missing Start button")
     start_button[0].send_keys(Keys.ENTER)
 
+    print("🏌️‍♂️ Setting name")
     # Name
     name_input = driver.find_elements(By.XPATH, "//*[@id=\"block-ba44ca44-825f-449c-8809-ac604b19880f\"]/div/div/div/div/div/div/div/div[2]/div[1]/input")
     if len(name_input) <= 0: raise Exception("missing name input")
@@ -103,7 +114,7 @@ if __name__ == "__main__":
     name_input[0].send_keys(Keys.ENTER)
 
     if pick == "primo":
-        pick_main_curse()   # ✅ main
+        pick_main_course()   # ✅ main
         next_section()      # ❌ follow
         next_section()      # ❌ fry
         pick_side()         # ✅ side
@@ -133,5 +144,5 @@ if __name__ == "__main__":
 
     set_notes()
 
-    print("Completed!")
+    print("✅ Completed!")
     print(picks)
