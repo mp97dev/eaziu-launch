@@ -10,6 +10,8 @@ import json
 import random
 from time import sleep
 
+picks=[]
+
 def setup():
     options = webdriver.ChromeOptions()
     options.add_argument("--headless")
@@ -29,33 +31,43 @@ def pick_main_curse():
     sleep(1)
     main_picks = driver.find_elements(By.XPATH, "//*[@id=\"block-dbed4899-9130-4194-8098-218dd064d7bf\"]/div/div/div/div/div/div/fieldset/div[2]/div/div[1]/div/div/div")
     if len(main_picks) <= 0: raise Exception("No main curse found")
-    random.choice(main_picks).click()
+    pick=random.choice(main_picks)
+    pick.click()
+    picks.append(pick.get_attribute("innerHTML"))
 
 def pick_follow():
     sleep(1)
     foll_picks = driver.find_elements(By.XPATH, "//*[@id=\"block-d94294cc-5d4b-4d87-b2e4-af6e7b8093ba\"]/div/div/div/div/div/div/fieldset/div[2]/div/div[2]/div/div/div")
     if len(foll_picks) <= 0: raise Exception("No follow dish found")
     filtered_foll_picks = [elem for elem in foll_picks if "pokè" not in elem.get_attribute("innerHTML").lower()]
-    random.choice(filtered_foll_picks).click()
+    pick=random.choice(filtered_foll_picks)
+    pick.click()
+    picks.append(pick.get_attribute("innerHTML"))
 
 def pick_poke():
     sleep(1)
     poke_picks = driver.find_elements(By.XPATH, "//*[@id=\"block-d94294cc-5d4b-4d87-b2e4-af6e7b8093ba\"]/div/div/div/div/div/div/fieldset/div[2]/div/div[2]/div/div/div")
     if len(poke_picks) <= 0: raise Exception("No follow dish found")
     filtered_poke_picks = [elem for elem in poke_picks if "pokè" in elem.get_attribute("innerHTML").lower()]
-    random.choice(filtered_poke_picks).click()
+    pick=random.choice(filtered_poke_picks)
+    pick.click()
+    picks.append(pick.get_attribute("innerHTML"))
 
 def pick_side():
     sleep(1)
     side_picks = driver.find_elements(By.XPATH, "//*[@id=\"block-120ded4b-5c30-483d-959d-44d36ed05eed\"]/div/div/div/div/div/div/fieldset/div[2]/div/div[2]/div/div/div")
     if len(side_picks) <= 0: raise Exception("side not founds")
-    random.choice(side_picks).click()
+    pick=random.choice(side_picks)
+    pick.click()
+    picks.append(pick.get_attribute("innerHTML"))
 
 def pick_fry():
     sleep(1)
     side_picks = driver.find_elements(By.XPATH, "//*[@id=\"block-bc594af9-461e-4741-b8f5-59a7b54bd861\"]/div/div/div/div/div/div/fieldset/div[2]/div/div[2]/div/div/div")
     if len(side_picks) <= 0: raise Exception("fry not founds")
-    random.choice(side_picks).click()
+    pick=random.choice(side_picks)
+    pick.click()
+    picks.append(pick.get_attribute("innerHTML"))
 
 def set_notes():
     sleep(1)
@@ -120,4 +132,6 @@ if __name__ == "__main__":
 
 
     set_notes()
-    sleep(2)
+
+    print("Completed!")
+    print(picks)
