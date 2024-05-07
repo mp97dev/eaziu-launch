@@ -1,6 +1,7 @@
 name: Push run
-on:
-  push: main
+on: 
+  push:
+    branches: main
 
 jobs:
   run_script:
