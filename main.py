@@ -12,7 +12,7 @@ from time import sleep
 
 def setup():
     options = webdriver.ChromeOptions()
-    # options.add_argument("--headless")
+    options.add_argument("--headless")
     options.binary_location = "/usr/bin/google-chrome"
     driver = webdriver.Chrome(service=ChromiumService(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()), options=options)
     driver.implicitly_wait(5)
