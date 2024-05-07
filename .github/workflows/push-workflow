@@ -1,0 +1,31 @@
+name: Scheduled run
+on:
+  push: main
+
+jobs:
+  run_script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📁 Check out repository
+        uses: actions/checkout@v3
+
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v3.1.4
+        with:
+          python-version: 3.x
+
+      - name: 🛠️ Update system
+        run: ./install.sh
+
+      - name: ⚙️ Install python dependencies
+        run: pip install -r requirements.txt
+
+      - name: 🚀 Run
+        run: python main.py
+        
+      - name: 🔮 COMPLETED!
+        run: |
+          dt=$(date '+%d/%m/%Y %H:%M:%S');
+          echo "COMPLETED AT $dt"
+        
