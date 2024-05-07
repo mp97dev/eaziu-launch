@@ -22,3 +22,18 @@ An automatic script to make everyday meal a surprise via github actions.
     }
 }
 ```
+
+| Parameter | Description |
+|:-:|:-:|
+|url| Lunch form link. **Do not change this**|
+|name| Text for field `name`|
+|note| Text for field `note`|
+|weight| Object with weights for random lunch selection. Cumulative, not percentage. (weight 2 is twice as much probable then 1)|
+
+### Lunch rules
+| Course | Description |
+|:-:|:-:|
+| Primo | Grants a main course (usually some pasta or soup) and a side (or dessert) |
+| Secondo | Grants a follow course and a side (or dessert) |
+| Poke | Grants a Poke only |
+| Rosticceria | Grants a fry main course and a side (or dessert) |
