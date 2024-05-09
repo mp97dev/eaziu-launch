@@ -13,7 +13,7 @@ from time import sleep
 picks=[]
 
 def setup():
-    print("Setting up webdriver")
+    print("Setting up webdriver...")
     options = webdriver.ChromeOptions()
     options.add_argument("--headless")
     options.binary_location = "/usr/bin/google-chrome"
@@ -82,7 +82,12 @@ def set_notes():
     if len(note_textare) <= 0: raise Exception("missing note field")
     note_textare[0].send_keys(config["note"])
 
-
+def confirm():
+    sleep(1)
+    confirm_button = driver.find_elements(By.XPATH, "/html/body/div[3]/main/div[1]/div/div[2]/div[3]/div[3]/div/div/div/div/div/div[2]/section/div/div/div/div/div/div/div/div/div[2]/div[3]/div/div/div/div/div[1]/div/div/button")
+    if len(confirm_button) <= 0: raise Exception("Missing confirm button")
+    confirm_button[0].click()
+    print("✉️ Confirmed")
 
 ######### start #############
 if __name__ == "__main__":
@@ -143,6 +148,7 @@ if __name__ == "__main__":
 
 
     set_notes()
+    confirm()
 
     print("✅ Completed!")
     print(picks)
