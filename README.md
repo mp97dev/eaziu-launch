@@ -11,10 +11,10 @@ An automatic script to make everyday meal a surprise via github actions.
 ## config.json
 ```json
 {
-    "url": "https://info637989.typeform.com/to/m4bUIenk", // do not change this, this is the lunch form link
-    "name": "Michele", // name
-    "note": "No Grana aggiunto", // note
-    "weight": { // weights for each type of lunch (cumulatives, not percentage)
+    "url": "https://info637989.typeform.com/to/m4bUIenk",
+    "name": "Michele",
+    "note": "No Grana aggiunto",
+    "weight": {
         "primo": 50,
         "poke": 10,
         "rosticceria": 10,
@@ -37,3 +37,12 @@ An automatic script to make everyday meal a surprise via github actions.
 | Secondo | Grants a follow course and a side (or dessert) |
 | Poke | Grants a Poke only |
 | Rosticceria | Grants a fry main course and a side (or dessert) |
+
+## Github action workflow
+```yaml
+name: Scheduled run
+on:
+  schedule:
+    - cron: "0 18 * * 1,3,4"  # <- Runs at 18:00 UTC, only on Monday, Wednesday, and Thursday. CHANGE TO YOUR NEED
+[...]
+```
