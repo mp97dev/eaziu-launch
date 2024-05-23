@@ -1,7 +1,7 @@
 name: Scheduled run
 on:
   schedule:
-    - cron: "0 17 * * 0,1,3,4"
+    - cron: "0 15 * * 0,1,3,4"  # <- Runs at 15:00 UTC (Rome 17:00), only on Monday, Wednesday, and Thursday. CHANGE TO YOUR NEED  
   pull_request:
     branches: 
       - main
