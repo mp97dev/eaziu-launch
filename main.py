@@ -10,11 +10,13 @@ import json
 import random
 from time import sleep
 
+poke_substrings = ['poke', 'pokè', 'poké']
+
 
 def setup():
     print("Setting up webdriver...")
     options = webdriver.ChromeOptions()
-    options.add_argument("--headless")
+    # options.add_argument("--headless")
     options.binary_location = "/usr/bin/google-chrome"
     driver = webdriver.Chrome(service=ChromiumService(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()), options=options)
     driver.implicitly_wait(5)
@@ -56,7 +58,10 @@ def pick_poke():
     sleep(1)
     poke_picks = driver.find_elements(By.XPATH, "//*[@id=\"block-d94294cc-5d4b-4d87-b2e4-af6e7b8093ba\"]/div/div/div/div/div/div/fieldset/div[2]/div/div[2]/div/div/div")
     if len(poke_picks) <= 0: raise Exception("No follow dish found")
-    filtered_poke_picks = [elem for elem in poke_picks if "pokè" in elem.get_attribute("innerHTML").lower()]
+
+    filtered_poke_picks = [elem for elem in poke_picks if any(x in elem.get_attribute("innerHTML").lower() for x in poke_substrings)]
+    if(len(filtered_poke_picks) <= 0): raise Exception("No poke found")
+
     pick=random.choice(filtered_poke_picks)
     pick.click()
     log(pick)
