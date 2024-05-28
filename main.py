@@ -12,11 +12,10 @@ from time import sleep
 
 poke_substrings = ['poke', 'pokè', 'poké']
 
-
 def setup():
     print("Setting up webdriver...")
     options = webdriver.ChromeOptions()
-    # options.add_argument("--headless")
+    options.add_argument("--headless")
     options.binary_location = "/usr/bin/google-chrome"
     driver = webdriver.Chrome(service=ChromiumService(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()), options=options)
     driver.implicitly_wait(5)
