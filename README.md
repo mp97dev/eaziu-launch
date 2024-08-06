@@ -1,4 +1,4 @@
-[![Scheduled run](https://github.com/gttrcr/eaziu-launch/actions/workflows/scheduled-workflow.yml/badge.svg?branch=main)](https://github.com/gttrcr/eaziu-launch/actions/workflows/scheduled-workflow.yml)
+[![Scheduled run](https://github.com/gttrcr/eaziu-launch/actions/workflows/main.yml/badge.svg)](https://github.com/gttrcr/eaziu-launch/actions/workflows/main.yml)
 
 # EaziU Launch 🚀🍝
 
@@ -48,4 +48,9 @@ on:
   schedule:
     - cron: "0 18 * * 1,3,4"  # <- Runs at 18:00 UTC, only on Monday, Wednesday, and Thursday. CHANGE TO YOUR NEED
 [...]
+```
+
+You can always execute the workflow using command
+```bash
+gh workflow run Scheduled\ run
 ```
