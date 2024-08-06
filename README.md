@@ -1,4 +1,4 @@
-[![Scheduled run](https://github.com/gttrcr/eaziu-launch/actions/workflows/scheduled-workflow.yml/badge.svg?branch=main)](https://github.com/gttrcr/eaziu-launch/actions/workflows/scheduled-workflow.yml)
+[![Scheduled run](https://github.com/gttrcr/eaziu-launch/actions/workflows/main.yml/badge.svg)](https://github.com/gttrcr/eaziu-launch/actions/workflows/main.yml)
 
 # EaziU Launch 🚀🍝
 
