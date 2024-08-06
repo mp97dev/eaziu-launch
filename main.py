@@ -113,7 +113,7 @@ def confirm():
     confirm_button = driver.find_elements(By.XPATH, "/html/body/div[3]/main/div[1]/div/div[2]/div[3]/div[3]/div/div/div/div/div/div[2]/section/div/div/div/div/div/div/div/div/div[2]/div[3]/div/div/div/div/div[1]/div/div/button")
     if len(confirm_button) <= 0:
         raise Exception("Missing confirm button")
-    # confirm_button[0].click()
+    confirm_button[0].click()
     sleep(1)
     print("✅ Confirmed")
     return True
