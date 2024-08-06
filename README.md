@@ -1,5 +1,3 @@
-[![Scheduled run](https://github.com/gttrcr/eaziu-launch/actions/workflows/scheduled-workflow.yml/badge.svg?branch=main)](https://github.com/gttrcr/eaziu-launch/actions/workflows/scheduled-workflow.yml)
-
 # EaziU Launch 🚀🍝
 
 An automatic script to make everyday meal a surprise via github actions.
