@@ -1,3 +1,5 @@
+[![Scheduled run](https://github.com/gttrcr/eaziu-launch/actions/workflows/scheduled-workflow.yml/badge.svg?branch=main)](https://github.com/gttrcr/eaziu-launch/actions/workflows/scheduled-workflow.yml)
+
 # EaziU Launch 🚀🍝
 
 An automatic script to make everyday meal a surprise via github actions.
@@ -14,6 +16,7 @@ An automatic script to make everyday meal a surprise via github actions.
     "url": "https://info637989.typeform.com/to/m4bUIenk",
     "name": "Michele",
     "note": "No Grana aggiunto",
+    "keep_the_secret": true,
     "weight": {
         "primo": 50,
         "poke": 10,
