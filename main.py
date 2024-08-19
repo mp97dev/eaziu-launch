@@ -37,7 +37,7 @@ def next_section():
 
 def pick_main_course():
     sleep(1)
-    picks = driver.find_elements(By.XPATH, "//*[@id=\"block-dbed4899-9130-4194-8098-218dd064d7bf\"]//*[@data-qa=\"choice-list\"]/div")
+    picks = driver.find_elements(By.XPATH, "//*[@id=\"block-dbed4899-9130-4194-8098-218dd064d7bf\"]//li")
     if len(picks) == 0:
         return False
     pick = random.choice(picks)
@@ -47,7 +47,7 @@ def pick_main_course():
 
 def pick_follow():
     sleep(1)
-    picks = driver.find_elements(By.XPATH, "//*[@id=\"block-d94294cc-5d4b-4d87-b2e4-af6e7b8093ba\"]//*[@data-qa=\"choice-list\"]/div")
+    picks = driver.find_elements(By.XPATH, "//*[@id=\"block-d94294cc-5d4b-4d87-b2e4-af6e7b8093ba\"]//li")
     if len(picks) == 0:
         return False
     remove_every_poke = [elem for elem in picks if not any(x in elem.get_attribute("innerHTML").lower() for x in poke_substrings)]
@@ -58,7 +58,7 @@ def pick_follow():
 
 def pick_poke():
     sleep(1)
-    picks = driver.find_elements(By.XPATH, "//*[@id=\"block-d94294cc-5d4b-4d87-b2e4-af6e7b8093ba\"]//*[@data-qa=\"choice-list\"]/div")
+    picks = driver.find_elements(By.XPATH, "//*[@id=\"block-d94294cc-5d4b-4d87-b2e4-af6e7b8093ba\"]//li")
     if len(picks) == 0:
         return False
     get_every_poke = [elem for elem in picks if any(x in elem.get_attribute("innerHTML").lower() for x in poke_substrings)]
@@ -71,7 +71,7 @@ def pick_poke():
 
 def pick_side():
     sleep(1)
-    picks = driver.find_elements(By.XPATH, "//*[@id=\"block-120ded4b-5c30-483d-959d-44d36ed05eed\"]//*[@data-qa=\"choice-list\"]/div")
+    picks = driver.find_elements(By.XPATH, "//*[@id=\"block-120ded4b-5c30-483d-959d-44d36ed05eed\"]//li")
     if len(picks) == 0:
         return False
     pick = random.choice(picks)
@@ -81,7 +81,7 @@ def pick_side():
 
 def pick_fry():
     sleep(1)
-    picks = driver.find_elements(By.XPATH, "//*[@id=\"block-bc594af9-461e-4741-b8f5-59a7b54bd861\"]//*[@data-qa=\"choice-list\"]/div")
+    picks = driver.find_elements(By.XPATH, "//*[@id=\"block-bc594af9-461e-4741-b8f5-59a7b54bd861\"]//li")
     if len(picks) == 0:
         return False
     pick = random.choice(picks)
