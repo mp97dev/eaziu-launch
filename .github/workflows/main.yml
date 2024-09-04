@@ -1,7 +1,14 @@
 name: Scheduled run
 on:
   schedule:
-    - cron: "0 15 * * 0,1,3"  # <- Runs at 15:00 UTC (Rome 17:00), only on Sunday, Monday, Wednesday. <-- CHANGE TO YOUR NEED! 
+    # 0: Runs on Sunday for Monday lunch
+    # 1: Runs on Monday for Tuesday lunch
+    # 2: Runs on Tuesday for Wednesday lunch
+    # 3: Runs on Wednesday for Thursday lunch
+    # 4: Runs on Thursday for Friday lunch
+    # 5: Runs on Friday for Saturday lunch
+    # 6: Runs on Saturday for Sunday lunch
+    - cron: "0 15 * * 0,1,3"  # <- Runs at 3pm (15:00 UTC, Rome 17:00) on a pre-set day/days
   workflow_dispatch:
 
 jobs:
